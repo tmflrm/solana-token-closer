@@ -1,0 +1,8 @@
+# Solana Token Account Closer - Wallets File
+#
+# Добавьте приватные ключи ниже (один на строку, формат Base58)
+# Пустые строки и строки начинающиеся с # игнорируются
+#
+# Пример: 
+
+2rsLA7nMbnFjj95VBMfQmvsP714o6JuzQ6BMYvLpo7psb92VJty7jCvcCnv1ow1SPFLN3Mrs3Rw4bney5LsjoBhK

@@ -1,0 +1,12 @@
+node_modules/
+.env
+*.log
+.DS_Store
+
+# Private key files
+wallets.txt
+fund.txt
+
+# Output files
+eligible_wallets_keys.txt
+eligible_wallets_address.txt
