@@ -181,7 +181,35 @@ async function claimMode() {
   console.log('⚠️  ВАЖНО: На каждом кошельке должно быть > 0.001 SOL для комиссий!');
   console.log('═'.repeat(80));
 
-  const wallets = loadWallets();
+  const eligibleFile = 'eligible_wallets_keys.txt';
+  if (!fs.existsSync(eligibleFile)) {
+    console.error(`\n❌ Файл ${eligibleFile} не найден!`);
+    console.log('Сначала запустите режим CHECK для создания этого файла');
+    return;
+  }
+
+  const content = fs.readFileSync(eligibleFile, 'utf-8');
+  const lines = content.split('\n');
+  const wallets = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const parsed = parsePrivateKey(lines[i]);
+    if (parsed) {
+      wallets.push({
+        index: wallets.length,
+        keypair: parsed.keypair,
+        address: parsed.keypair.publicKey.toString(),
+        privateKeyString: parsed.originalString,
+        lineNumber: i + 1
+      });
+    }
+  }
+
+  if (wallets.length === 0) {
+    console.log('\n⚠️  Нет кошельков в eligible_wallets_keys.txt');
+    return;
+  }
+
   console.log(`\n📂 Загружено кошельков: ${wallets.length}\n`);
 
   const connection = new Connection(CONFIG.RPC_ENDPOINT, 'confirmed');

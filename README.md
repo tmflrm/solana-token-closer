@@ -81,18 +81,14 @@ npm start
 npm start  # выбрать 1 (CHECK)
 # Создаются: eligible_wallets_keys.txt, eligible_wallets_address.txt
 
-# 2. Копируем eligible ключи в wallets.txt для CLAIM
-cp eligible_wallets_keys.txt wallets.txt
-
-# 3. Пополняем eligible кошельки SOL для комиссий
+# 2. Пополняем eligible кошельки SOL для комиссий
 npm start  # выбрать 2 (FUND)
-# Ввести сумму на каждый кошелёк (например 0.001)
+# Ввести сумму на каждый кошелёк (рекомендуется 0.001)
 
-# 4. Клеймим SOL с пустых токен-аккаунтов
+# 3. Клеймим SOL с пустых токен-аккаунтов
 npm start  # выбрать 3 (CLAIM)
-# Создаётся: successful_wallets.txt
 
-# 5. Собираем всю SOL на основной кошелёк
+# 4. Собираем всю SOL на основной кошелёк
 npm start  # выбрать 4 (COLLECT)
 # Отправляет всё на кошелёк из fund.txt
 ```
@@ -103,7 +99,6 @@ npm start  # выбрать 4 (COLLECT)
 |------|-------------|----------|
 | `eligible_wallets_keys.txt` | CHECK | Приватные ключи кошельков с доступным SOL |
 | `eligible_wallets_address.txt` | CHECK | Адреса кошельков с доступным SOL |
-| `successful_wallets.txt` | CLAIM | Приватные ключи кошельков где SOL был возвращён |
 
 ## Настройки производительности
 
